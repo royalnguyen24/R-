@@ -1,0 +1,61 @@
+### USING SQL in R
+install.packages("sqldf")
+library(sqldf)
+sqldf("select * from iris where Sepal_Length > 5 and Sepal_Width > 4
+
+###Summary
+Summary(dataset_name)
+## Min. :4.30
+##  1st Qu.:5.10
+##  Median :5.80
+## Mean :5.84
+##  3rd Qu.:6.40
+## Max. :7.90
+
+
+#describing a table
+dim(data_name)
+
+#counting number of colums
+ncol(data_name)
+
+#counting number of rows
+nrow(data_name)
+
+#naming Varibles 
+names(data_name)
+
+# Numerical Indexing 
+iris[1:10, "Variable_name"]
+&
+iris$Sepal.Length[1:10]
+
+## data_name[row, columns]
+iris[1:5, ]
+
+#Subset fuctions 
+ subset(x = iris, subset = Sepal.Length > 5 & Sepal.Width > 4)
+ 
+ subset(iris, Sepal.Length > 5 & Sepal.Width > 4)
+ 
+#Logical Vectors 
+iris[which(iris$Sepal.Length > 5 & iris$Sepal.Width > 4), ]
+
+#Random Sampling
+iris_sample = iris[sample(nrow(iris), nrow(iris) * 0.9), ]
+
+#Tables
+table(iris$Species)
+
+#Pie Charts
+ pie(table(iris$Species))
+ 
+#Historgram
+hist(iris$Sepal.Length)
+
+#Density Plot
+plot(density(iris$Sepal.Length))
+ 
+#Scatter Plot 
+library(MASS)
+parcoord(iris[, 1:4], col = iris$Species)
