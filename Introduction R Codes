@@ -53,7 +53,8 @@ table(iris$Species)
 #Historgram
 hist(iris$Sepal.Length)
 
-#Density Plot
+#Density Plot 
+##Checking for Outliers##
 plot(density(iris$Sepal.Length))
  
 #Scatter Plot 
