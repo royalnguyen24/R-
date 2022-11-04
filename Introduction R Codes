@@ -60,3 +60,32 @@ plot(density(iris$Sepal.Length))
 #Scatter Plot 
 library(MASS)
 parcoord(iris[, 1:4], col = iris$Species)
+
+
+library(MASS) #this data is in MASS package
+boston_data <- data(Boston)
+sample_index <- sample(nrow(Boston),nrow(Boston)*0.90)
+boston_train <- Boston[sample_index,]
+boston_test <- Boston[-sample_index,]
+
+install.packages('rpart')
+install.packages('rpart.plot')
+
+library(rpart)
+library(rpart.plot)
+
+boston_rpart <- rpart(formula = medv ~ ., data = boston_train)
+
+
+boston_largetree <- rpart(formula = medv ~ ., data = boston_train, cp = 0.00
+1)
+prp(boston_largetree)
+plotcp(boston_largetree)
+printcp(boston_largetree)
+sum((boston_train$medv - mean(boston_train$medv))^2)/nrow(boston_train)
+
+
+
+
+
+
